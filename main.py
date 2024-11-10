@@ -40,3 +40,11 @@ class Auto:
             if isinstance (self.asientos[i], Asiento):
                 contador = contador + 1
         return contador
+
+    def verificarIntegridad(self):
+        if self.registro == self.motor.registro:
+            for asiento in self.asientos:
+                if isinstance(asiento, Asiento):
+                    if (self.registro != asiento):
+                        return "Las piezas no son originales"
+            return "Auto original"
